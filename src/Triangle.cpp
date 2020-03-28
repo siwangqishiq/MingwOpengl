@@ -12,7 +12,7 @@ void Triangle::init() {
 		"out vec4 FragColor;\n"
 		"void main()\n"
 		"{\n"
-		"   FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
+		"   FragColor = vec4(1.0f, 1.0f, 0.0f, 1.0f);\n"
 		"}\n\0";
 
 	programId = CreateGPUProgram(vsShader.c_str() , fragShader.c_str());
@@ -44,5 +44,6 @@ void Triangle::onDestory() {
 }
 
 Triangle::~Triangle(){
+	onDestory();
 	std::cout << "Triangle deconstruct" << std::endl;
 }

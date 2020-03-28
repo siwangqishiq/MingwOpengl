@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "App.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -40,8 +41,13 @@ int main() {
         return -1;
     }    
 
-	IApp* triangle = new Triangle();
-	triangle->init();
+    //todo add components
+
+	//IApp* triangle = new Triangle();
+	//triangle->init();
+    std::shared_ptr<IApp> pTriangle = std::make_shared<Triangle>();
+    pTriangle->init();
+
 	
     // render loop
     // -----------
@@ -54,7 +60,7 @@ int main() {
         // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-		triangle->update(SCR_WIDTH , SCR_HEIGHT);
+		pTriangle->update(SCR_WIDTH , SCR_HEIGHT);
 		
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
@@ -62,9 +68,9 @@ int main() {
         glfwPollEvents();
     }
 	
-	triangle->onDestory();
-	delete triangle;
-	triangle = nullptr;
+	// triangle->onDestory();
+	// delete triangle;
+	// triangle = nullptr;
 	
     // glfw: terminate, clearing all previously allocated GLFW resources.
     // ------------------------------------------------------------------
