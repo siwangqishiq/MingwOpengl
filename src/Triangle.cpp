@@ -1,19 +1,9 @@
 #include "Triangle.h"
+#include "FileUtil.h"
 
 void Triangle::init() {
-	std::string vsShader = 
-		"#version 330 core \n"
-		"layout (location = 0) in vec3 aPos;\n"
-		"void main() { \n"
-		"	gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-		"}";
-	std::string fragShader = 
-		"#version 330 core \n"
-		"out vec4 FragColor;\n"
-		"void main()\n"
-		"{\n"
-		"   FragColor = vec4(1.0f, 1.0f, 0.0f, 1.0f);\n"
-		"}\n\0";
+	std::string vsShader = readTextContent("shader/triangle_vertex.glsl");
+	std::string fragShader = readTextContent("shader/triangle_fragment.glsl");
 
 	programId = CreateGPUProgram(vsShader.c_str() , fragShader.c_str());
 	

@@ -22,9 +22,6 @@ struct vec3{
 };
 
 
-/**
-* 从模型中读取的数据存放处
-*/
 class ModelData{
 public:
 	long mVertexCount;
@@ -67,8 +64,8 @@ public:
 	ModelData *mModelData = nullptr;
 	
 private:
-	long vertexCount; //顶点数量
-	long normalCount; //法线坐标数量
+	long vertexCount; //
+	long normalCount; //
 	
 	void prepareData(){
 		vertexCount = 0;
@@ -89,7 +86,7 @@ private:
 			return;
 
 
-		if(content[0] == '#'){ //此行为注释
+		if(content[0] == '#'){ //
 			return; 
 		}
 		if(debug){
@@ -114,14 +111,14 @@ private:
 		//std::cout << contents[0] << std::endl;
 		std::string type = contents[0];
 		
-		if(type == "v"){ //顶点
+		if(type == "v"){ //
 			float x = std::stof(contents[1]);
 			float y = std::stof(contents[2]);
 			float z = std::stof(contents[3]);
 			
 			vertexCount += 1;
 			//std::cout << x << " " << y << "  " << z << std::endl;
-		}else if(type == "vn") {//法向量
+		}else if(type == "vn") {//
 			float nx = std::stof(contents[1]);
 			float ny = std::stof(contents[2]);
 			float nz = std::stof(contents[3]);
@@ -129,11 +126,10 @@ private:
 			//float len = nx * nx + ny * ny + nz * nz;
 			//std::cout << len << std::endl;
 			//std::cout << nx << " " << ny << "  " << nz << std::endl;
-		}else if(type == "vt") {//纹理坐标
-			float u = std::stof(contents[1]);
+		}else if(type == "vt") {//
 			float v = std::stof(contents[2]);
 			//std::cout << u << " " << v << "  " << std::endl;
-		}else if(type == "f") {//面
+		}else if(type == "f") {//
 			
 		}
 		
