@@ -1,15 +1,24 @@
-compile:
-	g++ -c src/main.cpp -o main.o -I include/
-	g++ -c src/glad.cpp -o glad.o -I include/
-	g++ -c src/App.cpp -o App.o -I include/
-	g++ -c src/Triangle.cpp -o Triangle.o -I include/
-	g++ -c src/FileUtil.cpp -o FileUtil.o -I include/
+CC := g++
+
+SRC_DIR = src
+BUILD_DIR = build
+
+build_dir:
+	mkdir -p ${BUILD_DIR}
+
+compile:build_dir
+	${CC} -c ${SRC_DIR}/main.cpp -o ${BUILD_DIR}/main.o -I include/
+	${CC} -c ${SRC_DIR}/glad.cpp -o ${BUILD_DIR}/glad.o -I include/
+	${CC} -c ${SRC_DIR}/App.cpp -o ${BUILD_DIR}/App.o -I include/
+	${CC} -c ${SRC_DIR}/Triangle.cpp -o ${BUILD_DIR}/Triangle.o -I include/
+	${CC} -c ${SRC_DIR}/FileUtil.cpp -o ${BUILD_DIR}/FileUtil.o -I include/
 
 link:compile
-	g++ *.o -o main.exe -Llib -lglfw3dll -lopengl32 
+	${CC} ${BUILD_DIR}/*.o -o ${BUILD_DIR}/main.exe -Llib -lglfw3dll -lopengl32 
 	
 run:link
-	./main
+	${BUILD_DIR}/main
 	
 clean:
-	rm *.o main.exe
+	rm ${BUILD_DIR}/*.o 
+	rm ${BUILD_DIR}/main.exe
