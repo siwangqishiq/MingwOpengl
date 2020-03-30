@@ -4,7 +4,7 @@
 void Triangle::init() {
 	std::string vsShader = readTextContent("shader/triangle_vertex.glsl");
 	std::string fragShader = readTextContent("shader/triangle_fragment.glsl");
-
+	
 	programId = CreateGPUProgram(vsShader.c_str() , fragShader.c_str());
 	
 	glGenVertexArrays(1, &vao);

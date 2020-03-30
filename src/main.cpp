@@ -58,7 +58,7 @@ int main() {
 
         // render
         // ------
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 		pTriangle->update(SCR_WIDTH , SCR_HEIGHT);
 		
@@ -81,8 +81,25 @@ int main() {
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow *window) {
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS){
         glfwSetWindowShouldClose(window, true);
+    }
+
+    if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        std::cout << "press w" << std::endl;
+    }  
+
+    if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+        std::cout << "press a" << std::endl;
+    } 
+
+    if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        std::cout << "press s" << std::endl;
+    } 
+
+    if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+        std::cout << "press d" << std::endl;
+    } 
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes

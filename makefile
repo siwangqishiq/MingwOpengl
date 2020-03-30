@@ -18,7 +18,14 @@ link:compile
 	
 run:link
 	${BUILD_DIR}/main
+
+test_compile:
+	${CC} ${SRC_DIR}/test.cpp -o ${BUILD_DIR}/test -I include/
+	
+test:test_compile
+	${BUILD_DIR}/test
 	
 clean:
-	rm ${BUILD_DIR}/*.o 
-	rm ${BUILD_DIR}/main.exe
+	rm -f ${BUILD_DIR}/*.o 
+	rm -f ${BUILD_DIR}/main.exe
+	rm -f ${BUILD_DIR}/test.exe

@@ -4,11 +4,11 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include "linmath.h"
+#include "glm/common.hpp"
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1280;
+const unsigned int SCR_HEIGHT = 800;
 
 struct Vertex {
 	float x, y;
