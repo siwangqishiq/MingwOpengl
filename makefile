@@ -1,12 +1,17 @@
 CC := g++
 
 SRC_DIR = src
-BUILD_DIR = .
+BUILD_DIR = build
 
 build_dir:
 	mkdir -p ${BUILD_DIR}
 
-compile:main.o glad.o App.o Triangle.o FileUtil.o
+compile:\
+${BUILD_DIR}/main.o \
+${BUILD_DIR}/glad.o \
+${BUILD_DIR}/App.o \
+${BUILD_DIR}/Triangle.o \
+${BUILD_DIR}/FileUtil.o
 	
 ${BUILD_DIR}/Triangle.o:${SRC_DIR}/Triangle.cpp
 	${CC} -c ${SRC_DIR}/Triangle.cpp -o ${BUILD_DIR}/Triangle.o -I include/
