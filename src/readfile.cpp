@@ -4,6 +4,8 @@
 #include <vector>
 #include <sstream>
 
+#include "../include/glm/vec4.hpp"
+
 std::string& trim(std::string &s, std::string suffix = " "){
 	if (s.empty()) 
 		return s;
